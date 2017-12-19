@@ -59,4 +59,4 @@ meatChooser.addEventListener("change", function(event) {
   // Add the price to the total price and update the DOM to display the sandwich cost
 });
 Bonus
-Once you have this working, refactor it by adding an additional module that acts as a control center of sorts for all of the toppings modules. Then import that single module into DOMHandler.js. What would be the advantage of doing this? Isn't it just more code to achieve the same result? Look into the concept of abstraction in software design and decide if this fits that definition.
+Once you have this working, refactor it by adding an additional module that acts as a control center of sorts for all of the toppings modules. Then import that single module into DOMHandler.js. What would be the advantage of doing this? Isn't it just more code to achieve the same result? Look into the concept of abstraction in software design and decide if this fits that definition. 
