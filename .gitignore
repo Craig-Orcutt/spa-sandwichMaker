@@ -1,4 +1,5 @@
 node_modules
-dist/bundles.js
+dist/
 stylesheets/
 .sass-cache/
+package-lock.json
