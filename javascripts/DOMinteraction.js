@@ -22,15 +22,29 @@ submit.addEventListener('click', function(){
 function clearCheckboxes(div){
     let checkedBoxes = div.getElementsByClassName(div.id);
     for(let i = 0; i < checkedBoxes.length; i++){
+        sandwichMaker.clearCategoryTotal(div.id,checkedBoxes[i]);
         checkedBoxes[i].checked = false;
+        console.log(checkedBoxes[i].value);
     }
 }
 menu.addEventListener('change', function(){
     let category = event.target.closest('div');
-    sandwichMaker.addIngredient(category.id, event.target.value);
+    let none = category.getElementsByClassName('none');
     if(event.target.value === 'none'){
-        console.log("none was checked");
         clearCheckboxes(category);
+        // sandwichMaker.clearCategoryTotal(category);
+    }
+    else{
+        none[0].checked = false;
+    }
+    if (!event.target.checked){
+        sandwichMaker.removeIngredient(category.id, event.target.value);
+    }
+    // else if (event.target.checked){
+    //     sandwichMaker.addIngredient(category.id, event.target.value);
+    // }
+    else if (event.target.checked){
+        sandwichMaker.addIngredient(category.id, event.target.value);
     }
 });
 

@@ -5,6 +5,6 @@ let condPrices = {
     "mayo" : 0.13,
     "none" : 0
 };
-module.exports.addCond = function (condType){
-    return condPrices[condType];
+module.exports.getCondimentPrice = (condimentType) => {
+    return condPrices[condimentType];
 };

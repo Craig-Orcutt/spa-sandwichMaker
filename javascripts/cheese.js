@@ -1,10 +1,10 @@
 'use strict';
 let cheesePrices = {
     "american" : 0.23,
-    "pepperjack" : 0.25,
+    "pepper-jack" : 0.25,
     "munster" : 0.35,
     "none" : 0
 };
-module.exports.addCheese = function (cheeseType){
+module.exports.getCheesePrice = (cheeseType) => {
     return cheesePrices[cheeseType];
 };
