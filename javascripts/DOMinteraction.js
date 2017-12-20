@@ -19,8 +19,19 @@ submit.addEventListener('click', function(){
 // When 'none' is selected, the other checkboxes are unchecked.
 // if 'none' is selected and another option is then checked, 'none' needs to be unchecked
 // if none is selected, then categories total is zeroed out.
+function clearCheckboxes(div){
+    let checkedBoxes = div.getElementsByClassName(div.id);
+    for(let i = 0; i < checkedBoxes.length; i++){
+        checkedBoxes[i].checked = false;
+    }
+}
 menu.addEventListener('change', function(){
-    sandwichMaker.addIngredient(event.target.closest('div').id, event.target.value);
+    let category = event.target.closest('div');
+    sandwichMaker.addIngredient(category.id, event.target.value);
+    if(event.target.value === 'none'){
+        console.log("none was checked");
+        clearCheckboxes(category);
+    }
 });
 
 let sandwichOutput = function (sandwichObject) {
