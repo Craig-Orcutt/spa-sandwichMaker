@@ -35,31 +35,74 @@ let sandwich = {
 //      return total;
 // };
 
+// Switch Statement used insted of 'if statement'
 module.exports.addIngredient = function (id , value){
     sandwich[id].push(value);
     switch(id){
         case "bread":
-        total +=bread.addBread(value);
+        total += bread.getBreadPrice(value);
         break;
         case "meat":
-        total += meat.addMeat(value);
+        total += meat.getMeatPrice(value);
         break;
         case "cheese":
-        total += cheese.addCheese(value);
+        total += cheese.getCheesePrice(value);
         break;
         case "veggies" :
-        total += veggie.addVeg(value);
+        total += veggie.getVeggiePrice(value);
         break;
         case "condiments":
-        total +=condiment.addCond(value);
+        total +=condiment.getCondimentPrice(value);
         }
-        return total;
+        return total.toFixed(2);
 };
-
+module.exports.removeIngredient = (id, value) => {
+    sandwich[id].splice(sandwich[id].indexOf(value), 1);
+    switch(id){
+        case "bread":
+        total -=bread.getBreadPrice(value);
+        break;
+        case "meat":
+        total -= meat.getMeatPrice(value);
+        break;
+        case "cheese":
+        total -= cheese.getCheesePrice(value);
+        break;
+        case "veggies" :
+        total -= veggie.getVeggiePrice(value);
+        break;
+        case "condiments":
+        total -=condiment.getCondimentPrice(value);
+    }
+    return total.toFixed(2);
+};
+// THIS IS A GETTER
 module.exports.getTotal = function(){
-    return total;
+    return total.toFixed(2);
 };
 
 module.exports.getSandwich = function(){
     return sandwich;
 };
+
+module.exports.clearCategoryTotal = (id ,ingredient) => {
+        if (ingredient.checked){
+            switch (id){
+            case "bread":
+            total -= bread.getBreadPrice(ingredient.value).toFixed(2);
+            break;
+            case "meat":
+            total -= meat.getMeatPrice(ingredient.value).toFixed(2);
+            break;
+            case "cheese":
+            total -= cheese.getCheesePrice(ingredient.value).toFixed(2);
+            break;
+            case "condiment":
+            total -= condiment.getCondimentPrice(ingredient.value).toFixed(2);
+            break;
+            case "veggie":
+            total -= veggie.getVeggiePrice(ingredient.value).toFixed(2);
+            break;
+        }
+        }
+    };

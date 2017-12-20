@@ -5,6 +5,6 @@ let meatPrices = {
     "bacon" : 0.55,
     "none" : 0
 };
-module.exports.addMeat = function (meatType){
+module.exports.getMeatPrice = (meatType) => {
     return meatPrices[meatType];
 };

@@ -5,6 +5,6 @@ let vegPrices = {
     "lettuce" : 0.12,
     "none" : 0
 };
-module.exports.addVeg = function (vegType){
+module.exports.getVeggiePrice = (vegType) => {
     return vegPrices[vegType];
 };
