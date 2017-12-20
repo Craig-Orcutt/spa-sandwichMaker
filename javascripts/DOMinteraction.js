@@ -16,7 +16,9 @@ let sandwichMaker = require("./sandwichMaker");
 submit.addEventListener('click', function(){
     output.innerHTML = `${sandwichMaker.getTotal()} ${sandwichOutput(sandwichMaker.getSandwich())}`;
 });
-
+// When 'none' is selected, the other checkboxes are unchecked.
+// if 'none' is selected and another option is then checked, 'none' needs to be unchecked
+// if none is selected, then categories total is zeroed out.
 menu.addEventListener('change', function(){
     sandwichMaker.addIngredient(event.target.closest('div').id, event.target.value);
 });
